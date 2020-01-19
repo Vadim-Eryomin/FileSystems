@@ -1,7 +1,7 @@
 package com.company;
 
 public class Find {
-    public static void find(int id, String write) {
+    public static String[][] find(String write) {
         String[] a = write.split("\n");
         String [][] strings= new String[a.length][2];
         for (int i = 0; i < a.length; i++) {
@@ -9,5 +9,6 @@ public class Find {
             strings[i][0]=b[0];
             strings[i][1]=b[1];
         }
+        return strings;
     }
 }

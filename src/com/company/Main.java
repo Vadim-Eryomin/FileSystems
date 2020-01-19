@@ -4,9 +4,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         JFrame frame = new JFrame("Магазин анекдот");
         frame.setVisible(true);
         frame.setSize(500, 400 );
@@ -24,7 +26,12 @@ public class Main {
         buy.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Лупа и Пупа пошли получать зарплату, но в бухгалтерии всё перепутали. И Лупа получил за Пупу, а Пупа за Лупу");
+                try {
+                    new Wirte(1, Pay.pays(Integer.parseInt(Find.find(Read.read())[0][1]), Integer.parseInt(text.getText())), Find.find(Read.read()));
+                    JOptionPane.showMessageDialog(null, "Лупа и Пупа пошли получать зарплату, но в бухгалтерии всё перепутали. И Лупа получил за Пупу, а Пупа за Лупу");
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         });
     }
