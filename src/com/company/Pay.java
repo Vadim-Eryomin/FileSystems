@@ -5,6 +5,9 @@ public class Pay {
     private static int cost;
     public static String info;
 
+    public Pay() {
+    }
+
     public static int getMoney() {
         return money;
     }
@@ -23,7 +26,7 @@ public class Pay {
 
     public static int pays(int money, int cost){
         if(money >= cost){
-            money =-cost;
+            money = money - cost;
             return money;
         }
         else if(money < cost){
